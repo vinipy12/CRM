@@ -29,12 +29,8 @@ class RepresentanteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'empresa', 'email')
     search_fields = ('nome', 'empresa', 'email')
 
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        return qs.prefetch_related('customers')
 
 @admin.register(Endereco)
 class EnderecoAdmin(admin.ModelAdmin):
     list_display = ('rua', 'bairro', 'cep', 'cidade', 'estado', 'pais')
     search_fields = ('rua', 'bairro', 'cep', 'cidade', 'estado', 'pais')
-    
