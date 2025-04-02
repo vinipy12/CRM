@@ -28,7 +28,7 @@
                                 <div class="row g-0 w-100">
                                     <div class="col-6">
                                         <div class="p-3 m-1">
-                                            <h4>Bem Vindo, {{ worker.nome_do_representante_legal }}</h4>
+                                            <h4>Bem Vindo, {{ worker.nome }}</h4>
                                             <p class="mb-0">Dashboard Administrativo, {{ worker.empresa }}</p>
                                         </div>
                                     </div>
@@ -50,10 +50,10 @@
                         <tbody>
                             {% for file in files %}
                             <tr>
-                                <td>{{ file.nome_do_arquivo }}</td>
-                                <td>{{ file.ano_do_arquivo }}</td>
-                                <td>{{ file.data_de_upload_do_arquivo }}</td>
-                                <td><a href="{{ file.endereço_do_arquivo.url }}" download>Download</a></td>
+                                <td>{{ file.nome }}</td>
+                                <td>{{ file.ano }}</td>
+                                <td>{{ file.data_upload }}</td>
+                                <td><a href="{{ file.endereco.url }}" download>Download</a></td>
                             </tr>
                             {% endfor %}
                         </tbody>
