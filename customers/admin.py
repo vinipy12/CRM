@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Empresa, Representante
+from .models import Empresa, Endereco, Representante
 from files.models import Arquivo
 
 class ArquivoInline(admin.TabularInline):
@@ -32,3 +32,9 @@ class RepresentanteAdmin(admin.ModelAdmin):
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         return qs.prefetch_related('customers')
+
+@admin.register(Endereco)
+class EnderecoAdmin(admin.ModelAdmin):
+    list_display = ('rua', 'bairro', 'cep', 'cidade', 'estado', 'pais')
+    search_fields = ('rua', 'bairro', 'cep', 'cidade', 'estado', 'pais')
+    
