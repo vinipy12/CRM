@@ -18,12 +18,6 @@ class EmpresaAdmin(admin.ModelAdmin):
         qs = super().get_queryset(request)
         return qs.prefetch_related('files')
 
-class EmpresaInline(admin.TabularInline):
-    model = Arquivo
-    extra = 0
-    fields = ('nome_fantasia', 'cnpj', 'endereco')
-    readonly_fields = ('nome_fantasia', 'cnpj', 'endereco')
-
 @admin.register(Representante)
 class RepresentanteAdmin(admin.ModelAdmin):
     list_display = ('nome', 'empresa', 'email')

@@ -184,12 +184,12 @@ def register(request):
                 )
 
                 # 5. Generate and store token (New)
-                token = str(uuid.uuid4())
-                representante.activation_token = token
+                #token = str(uuid.uuid4())
+                #representante.activation_token = token
                 representante.save()
 
                 # 6. Send verification email using Django's default email functions
-                send_verification_email(representante, user, token)
+                #send_verification_email(representante, user, token)
 
                 messages.success(request, 'Conta criada com sucesso! Verifique seu e-mail para ativar sua conta.')
                 return redirect('login')
@@ -212,12 +212,12 @@ class CustomPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
     success_url = 'password_reset_complete'
 
 
-def send_verification_email(representante, user, token):
+"""def send_verification_email(representante, user, token):
     subject = "Ative sua conta PROSESMT"
     from_email = "your_verified_email@example.com"  # Use your verified email address (or DEFAULT_FROM_EMAIL from settings)
     activation_link = f"https://yourdomain.com/activate/?token={token}"  # Activation link
 
-    html_content = f"""
+    html_content = f
     <html>
     <body>
         <p>Olá {representante.nome},</p>
@@ -225,7 +225,7 @@ def send_verification_email(representante, user, token):
         <p><a href="{activation_link}">{activation_link}</a></p>
     </body>
     </html>
-    """
+
 
     text_content = f"Olá {representante.nome},\n\nObrigado por se registrar no PROSESMT. Clique no link abaixo para ativar sua conta:\n\n{activation_link}"
 
@@ -256,4 +256,4 @@ def activate(request):
             return redirect('register')  # Or any other appropriate page
     else:
         messages.error(request, "Nenhum token de ativação fornecido.")
-        return redirect('register')  # Or any other appropriate page
+        return redirect('register')  # Or any other appropriate page"""

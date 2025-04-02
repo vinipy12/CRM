@@ -43,7 +43,6 @@ class Representante(models.Model):
     ultima_edicao = models.DateTimeField(editable=False)  
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, related_name='workers')
     username = models.OneToOneField(User, on_delete=models.CASCADE)
-    activation_token = models.CharField(max_length=255, blank=True, null=True) 
 
     @property
     def cnpj(self):
